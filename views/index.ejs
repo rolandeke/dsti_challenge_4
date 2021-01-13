@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 p-2 text-center">
+            <h1 class="text-center">Water Stations visualization</h1> <a href="/add" class="btn btn-primary my-2">Add
+                Water Station</a>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="station_filter">Filter by Station type</label>
+                        <select class="form-control" name="station_filter" id="station_filter">
+                            <option value="Dam">Dam</option>
+                            <option value="Community Well">Community Pump</option>
+                            <option value="Well">Well</option>
+                            <option value="Pump Station">Pump Station</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map" style="width: 100%; height: 100vh;"></div>
+    </div>
+
+</div>

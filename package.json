@@ -1,0 +1,26 @@
+{
+  "name": "dsti_code_challenge_4",
+  "version": "1.0.0",
+  "description": "Code Challenge for DSTI ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Chinedum Roland Eke",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-validator": "^6.9.2",
+    "mongoose": "^5.11.10",
+    "node-geocoder": "^3.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

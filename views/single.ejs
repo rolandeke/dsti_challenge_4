@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update Water Station</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <% if (typeof singleStation !=="undefined" ) { %>
+                                <form action="/add/update" method="post">
+                                    <div class="form-group my-2">
+                                        <label for="stationId">Station ID</label>
+                                        <input type="text" name="stationId" id="stationId" class="form-control"
+                                            value="<%- singleStation.stationId %>">
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="Location">Station Location</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="Lat" id="Lat" class="form-control"
+                                                    value="<%- singleStation.Location.coordinates[0] %>">
+                                            </div>
+                                            <div class=" col-md-6">
+                                                <input type="text" name="Long" id="Long" class="form-control"
+                                                    value="<%- singleStation.Location.coordinates[1] %>">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class=" form-group my-2">
+                                        <label for="StationType">Choose Station type</label>
+                                        <select class="form-control" name="StationType" id="StationType">
+                                            <option value="<%- singleStation.StationType %> ">
+                                                <%- singleStation.StationType %>
+                                            </option>
+                                            <option value=" Dam">Dam</option>
+                                            <option value="Community Well">Community Pump</option>
+                                            <option value="Well">Well</option>
+                                            <option value="Pump Station">Pump Station</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="Capacity">Station Capacity</label>
+                                        <input type="text" name="Capacity" id="Capacity" class="form-control"
+                                            value="<%- singleStation.Capacity %> ">
+                                    </div>
+                                    <button type="submit" class="btn btn-info" id="btnSaveData">Update Water
+                                        Station</button>
+                                </form>
+                                <% } %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <a href="/" class="btn btn-primary mt-5">Go Home</a>
+            <h1 class="text-center my-2">Station Details</h1>
+            <% if (typeof message !=="undefined" ) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>
+                        <%- message %>
+                    </strong>
+                </div>
+
+                <% } %>
+                    <h1>Station ID: <%- typeof singleStation !=="undefined" ? singleStation.stationId : "" %>
+                    </h1>
+                    <h1>Location: <%- typeof singleStation !=="undefined" ? singleStation.Location.coordinates : "" %>
+                    </h1>
+                    <h1>Station Type: <%- typeof singleStation !=="undefined" ? singleStation.StationType : "" %>
+                    </h1>
+                    <h1>Capacity: <%- typeof singleStation !=="undefined" ? singleStation.Capacity : "" %>
+                    </h1>
+                    <% if (typeof stationId !=="undefined" ) { %>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-info mt-2 mx-2" data-toggle="modal"
+                            data-target="#updateModal">
+                            Update Station
+                        </button>
+                        <!-- <a href="/update/<%-stationId%>" class="btn btn-info mt-2 mx-2">Update Station</a> -->
+                        <a href="/delete/<%-stationId%>" class="btn btn-danger mt-2">Delete Station</a>
+                        <% } %>
+
+        </div>
+    </div>
+</div>
